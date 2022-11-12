@@ -1,5 +1,5 @@
 // footballTeamModel.js
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 // Setup schema
 var footballTeamSchema = mongoose.Schema({
     name: {
@@ -21,7 +21,4 @@ var footballTeamSchema = mongoose.Schema({
     }
 });
 // Export FootballTeam model
-var FootballTeam = module.exports = mongoose.model('footballTeam', footballTeamSchema);
-module.exports.get = function (callback, limit) {
-    FootballTeam.find(callback).limit(limit);
-}
+export default mongoose.model('footballTeam', footballTeamSchema);

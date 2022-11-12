@@ -1,14 +1,14 @@
 // Import express
-let express = require('express');
+import express from 'express';
 // Import Body parser
-let bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
 // Import Mongoose
-let mongoose = require('mongoose');
+import mongoose from 'mongoose';
 // Initialise the app
 let app = express();
 
 // Import routes
-let apiRoutes = require("./api-routes");
+import apiRoutes from './api-routes.js';
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
@@ -25,7 +25,7 @@ else
     console.log("Db connected successfully")
 
 // Setup server port
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 6000;
 
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express'));
@@ -36,3 +36,5 @@ app.use('/api', apiRoutes);
 app.listen(port, function () {
     console.log("Running RestHub on port " + port);
 });
+
+export default app;

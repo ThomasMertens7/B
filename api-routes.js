@@ -1,6 +1,7 @@
 // api-routes.js
 // Initialize express router
-let router = require('express').Router();
+import express from 'express';
+let router = express.Router();
 // Set default API response
 router.get('/', function (req, res) {
     res.json({
@@ -9,15 +10,15 @@ router.get('/', function (req, res) {
     });
 });
 // Import footballTeam controller
-var footballTeamController = require('./footballTeamController');
+import {index, create, view, update, remove} from './footballTeamController.js';
 // footballTeam routes
 router.route('/footballTeams')
-    .get(footballTeamController.index)
-    .post(footballTeamController.new);
+    .get(index)
+    .post(create);
 router.route('/footballTeams/:footballTeam_id')
-    .get(footballTeamController.view)
-    .patch(footballTeamController.update)
-    .put(footballTeamController.update)
-    .delete(footballTeamController.delete);
+    .get(view)
+    .patch(update)
+    .put(update)
+    .delete(remove);
 // Export API routes
-module.exports = router;
+export default router;
