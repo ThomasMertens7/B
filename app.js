@@ -5,7 +5,10 @@ import bodyParser from 'body-parser';
 // Import Mongoose
 import mongoose from 'mongoose';
 // Initialise the app
+import cors from 'cors'
 let app = express();
+
+app.use(cors())
 
 // Import routes
 import apiRoutes from './api-routes.js';
