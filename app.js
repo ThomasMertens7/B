@@ -10,6 +10,7 @@ let app = express();
 
 app.use(cors())
 
+
 // Import routes
 import apiRoutes from './api-routes.js';
 // Configure bodyparser to handle post requests
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb+srv://admin:adminpassword@b.wnxxcno.mongodb.', { useNewUrlParser: true});
+mongoose.connect('mongodb+srv://admin:adminpassword@b.wnxxcno.mongodb.net/?retryWrites=true&w=majority');
 var db = mongoose.connection;
 
 // Added check for DB connection
@@ -28,7 +29,7 @@ else
     console.log("Db connected successfully")
 
 // Setup server port
-var port = process.env.PORT || 6000;
+var port = process.env.PORT || 8080;
 
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express'));

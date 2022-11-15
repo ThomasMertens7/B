@@ -20,7 +20,7 @@ export async function index (req, res) {
 // Handle create footballTeam actions
 export async function create (req, res) {
     var footballTeam = new FootballTeam();
-    footballTeam.name = req.body.name ? req.body.name : footballTeam.name;
+    footballTeam.name = req.body.name;
     footballTeam.league = req.body.league;
     footballTeam.location = req.body.location;
     footballTeam.bestPlayer = req.body.bestPlayer;
