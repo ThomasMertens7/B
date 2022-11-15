@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb+srv://admin:adminpassword@b.wnxxcno.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb://localhost:27017/footballTeams');
 var db = mongoose.connection;
 
 // Added check for DB connection
